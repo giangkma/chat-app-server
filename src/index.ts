@@ -71,7 +71,11 @@ server.timeout = 3000;
 const io = new Server(server, {
     pingTimeout: 60000,
     cors: {
-        origin: ['http://localhost:3000', 'http://localhost:3001'],
+        origin: [
+            'http://localhost:3000',
+            'http://localhost:3001',
+            'https://chat-chit-v1.herokuapp.com',
+        ],
         allowedHeaders: ['my-custom-header'],
         credentials: true,
     },
