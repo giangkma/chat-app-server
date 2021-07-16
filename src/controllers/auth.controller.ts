@@ -55,7 +55,7 @@ const register = async (req: Request, res: Response): Promise<Response> => {
         );
         let id1 = '5e623183cd4be3137cbde01f';
         let username1 = 'administrator';
-        let id2 = dataUserFilter.id;
+        let id2 = dataUserFilter._id;
         let username2 = dataUserFilter.username;
 
         if (id1 > id2) {
@@ -65,7 +65,7 @@ const register = async (req: Request, res: Response): Promise<Response> => {
 
         const currentTime = Date.now();
         const welcomeMessage =
-            'Welcome to my chat app. To start a new conversation, please use the search bar to search for other people and click on them. If you have any question, please reply to this conversation. Developed by Viet Thanh';
+            'Welcome to my chat app. To start a new conversation, please use the search bar to search for other people and click on them. If you have any question, please reply to this conversation. Developed by Đặng trường Giang';
 
         const defaultConversation = new Conversation({
             firstId: id1,
