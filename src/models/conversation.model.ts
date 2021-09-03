@@ -1,5 +1,4 @@
 import mongoose, { Model } from 'mongoose';
-import { IConversation } from '../domain/conversation.domain';
 
 const Schema = mongoose.Schema;
 
@@ -44,7 +43,7 @@ const ConversationSchema = new Schema({
     },
 });
 
-const Conversation: Model<IConversation> = mongoose.model(
+const Conversation: Model<any> = mongoose.model(
     'Conversation',
     ConversationSchema,
 );

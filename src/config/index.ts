@@ -9,11 +9,6 @@ export const statusHTTP = {
     BAD_REQUEST: 400,
 };
 
-export enum roles {
-    STUDENT = 'student',
-    TEACHER = 'teacher',
-}
-
 export const configSocket = (io: Server) => {
     io.on('connection', (socket: Socket) => {
         console.log('User has connect');

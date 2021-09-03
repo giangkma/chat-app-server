@@ -10,14 +10,10 @@ router.post('/login', validate(authValidation.login), authController.login);
 
 router.post(
     '/register',
-    // validate(authValidation.register),
+    validate(authValidation.register),
     authController.register,
 );
 
 router.get('/get-profile', isAuth, authController.getProfile);
-
-router.put('/update-profile', isAuth, authController.updateProfile);
-
-router.put('/change-password', isAuth, authController.changePassword);
 
 export default router;

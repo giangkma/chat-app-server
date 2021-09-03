@@ -8,6 +8,7 @@ import { Request, Response } from 'express';
 
 import User from '../models/user.model';
 import Conversation from '../models/conversation.model';
+import { IConversation } from '../domain/conversation.domain';
 
 const findPeople = async (req: Request, res: Response): Promise<Response> => {
     try {
@@ -51,7 +52,7 @@ const getConversation = async (
             firstUserName: firstUser.username,
             secondUserName: secondUser.username,
         });
-        newCvs.save((err, conversation) => {
+        newCvs.save((err: any, conversation: IConversation) => {
             if (err) {
                 return responseServerError(
                     res,
@@ -124,14 +125,15 @@ const sendMessage = async (req: Request, res: Response): Promise<Response> => {
         conversation.lastMessage = content;
         conversation.lastSender = username;
         conversation.lastUpdate = currentTime;
-        conversation.save((err, cv) => {
+        conversation.save((err: any, conversation: IConversation) => {
             if (err) {
                 return responseServerError(
                     res,
                     'Server error when add new message',
                 );
             }
-            const newMessage = cv.messages[conversation.messages.length - 1];
+            const newMessage =
+                conversation.messages[conversation.messages.length - 1];
             conversation.messages = undefined;
             return responseSuccess(res, {
                 message: 'Add new message successfully',

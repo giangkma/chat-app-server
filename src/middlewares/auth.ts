@@ -1,8 +1,6 @@
+import { NextFunction, Response } from 'express';
 import { statusHTTP } from '../config';
 import { verifyToken } from '../helpers/jwt';
-import { roles } from '../config';
-import { Response, NextFunction } from 'express';
-import { RequestUser } from '../domain/common.domain';
 
 // Mã secretKey này phải được bảo mật tuyệt đối, các bạn có thể lưu vào biến môi trường hoặc file
 const accessTokenSecret =
