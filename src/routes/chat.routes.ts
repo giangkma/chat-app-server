@@ -10,5 +10,6 @@ router.get('/conversation', isAuth, chatController.getConversation);
 router.get('/get-messages', isAuth, chatController.getMessages);
 router.get('/conversation-list', isAuth, chatController.getConversationList);
 router.post('/send-message', isAuth, chatController.sendMessage);
+router.delete('/conversation/:id', isAuth, chatController.deleteConversation);
 
 export default router;

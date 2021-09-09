@@ -29,9 +29,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cors());
 
-app.use(`/api/auth`, authRoute);
+app.use(`/api/${version}/auth`, authRoute);
 app.use(isAuth);
-app.use(`/api`, chatRoutes);
+app.use(`/api/${version}`, chatRoutes);
 
 app.get('/', (req, res) => {
     res.send(`Listening on port ${port}`);

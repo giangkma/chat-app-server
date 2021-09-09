@@ -90,6 +90,21 @@ const getConversationList = async (
     }
 };
 
+const deleteConversation = async (
+    req: Request,
+    res: Response,
+): Promise<Response> => {
+    try {
+        const { id } = req.params;
+        if (!id) return responseAuthError(res, 'No conversation found');
+        const result = await Conversation.findById(id);
+        console.log(result);
+        if (!result) return responseBadRequest(res, 'Đã xảy ra lỗi !');
+    } catch (error) {
+        return responseAuthError(res, error.message ?? error);
+    }
+};
+
 const getMessages = async (req: Request, res: Response): Promise<Response> => {
     try {
         const { cid, page, last } = req.query;
@@ -152,4 +167,5 @@ export default {
     getConversationList,
     getMessages,
     sendMessage,
+    deleteConversation,
 };

@@ -18,7 +18,7 @@ export const configSocket = (io: Server) => {
             socket.disconnect();
         });
 
-        socket.on('user-login', (uid: any) => {
+        socket.on('user-login', (uid: string) => {
             console.log('user-login : ', uid);
             User.findById(uid).exec((err, user) => {
                 if (user) {
